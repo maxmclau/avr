@@ -2,7 +2,7 @@
 
 Seed for new avr-gcc projects
 
-### Install
+#### Install
 
 ```Shell
 $ git clone https://github.com/maxmclau/avr.git
@@ -10,10 +10,10 @@ $ cd avr/
 $ make
 ```
 
-### Targets
+#### Targets
 
 | Target | Action |
-|---|---|
+|:---|:---|
 | ```all``` | Build all targets |
 | ```stats``` | Print output of avr-size |
 | ```clean``` | Remove all compiled files and objects |
@@ -21,6 +21,6 @@ $ make
 | ```flash_bootloader``` | Flash .hex file to AVR with avrdude and bootloader flags |
 | ```directories``` | Create associated directories if they do not exist |
 
-### License
+#### License
 
 [**`MIT`**](LICENSE)
