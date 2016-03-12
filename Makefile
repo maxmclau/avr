@@ -33,11 +33,11 @@ BOOTLOADER_OPTIONS = -b 115200
 ##########################################################
 # Project Directories
 ##########################################################
-BUILD_DIR = ./Build
-DRIVERS_DIR = ./Drivers
-INCLUDES_DIR = ./Includes
-LIBRARIES_DIR = ./Libraries
-SOURCES_DIR = ./Sources
+BUILD_DIR = ./build
+DRIVERS_DIR = ./drivers
+INCLUDES_DIR = ./includes
+LIBRARIES_DIR = ./lib
+SOURCES_DIR = ./src
 
 ##########################################################
 # Includes
@@ -98,7 +98,7 @@ REMOVE = rm -f
 GCC_FLAGS = -g -mmcu=$(TARGET) -O$(OPTIMIZATION) -DF_CPU=$(SYSTEM_CLOCK) -fpack-struct -fshort-enums -funsigned-bitfields -funsigned-char -Wall -Wstrict-prototypes
 GCC_FLAGS += $(patsubst %,-I%,$(INCLUDES)) -I.
 
-GPP_FLAGS = -g -mmcu=$(TARGET) -O$(OPTIMIZATION) -DF_CPU=$(SYSTEM_CLOCK) -fpack-struct -fshort-enums -funsigned-bitfields -funsigned-char -Wall -Wstrict-prototypes -fno-exceptions 
+GPP_FLAGS = -g -mmcu=$(TARGET) -O$(OPTIMIZATION) -DF_CPU=$(SYSTEM_CLOCK) -fpack-struct -fshort-enums -funsigned-bitfields -funsigned-char -Wall -Wstrict-prototypes -fno-exceptions
 GPP_FLAGS += $(patsubst %,-I%,$(INCLUDES)) -I.
 
 AS_FLAGS = $(LISTING) -mmcu=$(TARGET) -DF_CPU=$(SYSTEM_CLOCK) -x assembler-with-cpp
