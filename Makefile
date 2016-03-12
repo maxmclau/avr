@@ -132,7 +132,7 @@ else
 all:: $(OUTPUT_NAME).hex
 endif
 
-$(OUTPUT_NAME).hex: $(OUTPUT_NAME).elf
+$(OUTPUT_NAME).hex: directories $(OUTPUT_NAME).elf
 	$(OBJCOPY) -j .text -j .data -O ihex $(BUILD_DIR)/$(OUTPUT_NAME).elf $(BUILD_DIR)/$(OUTPUT_NAME).hex
 	$(SIZE) $(SIZE_FLAGS) $(BUILD_DIR)/$(OUTPUT_NAME).elf
 
@@ -155,6 +155,18 @@ flash_programmer: $(OUTPUT_NAME).hex
 flash_bootloader: $(OUTPUT_NAME).hex
 	$(AVRDUDE) $(BOOTLOADER_FLAGS) -U flash:w:$(BUILD_DIR)/$(OUTPUT_NAME).hex
 
+##########################################################
+# Default rules to create directories if they don't
+# already exist
+##########################################################
+
+directories:
+	@mkdir -p $(BUILD_DIR)
+	@mkdir -p $(DRIVERS_DIR)
+	@mkdir -p $(INCLUDES_DIR)
+	@mkdir -p $(LIBRARIES_DIR)
+	@mkdir -p $(BUILD_DIR)
+	@mkdir -p $(SOURCES_DIR)
 
 ##########################################################
 # Default rules to compile .c and .cpp file to .o
