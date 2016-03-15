@@ -14,7 +14,7 @@ $ make
 
 | Target | Action |
 |:---|:---|
-| ```all``` | Build all targets |
+| ```*``` | Build all targets |
 | ```stats``` | Print output of avr-size |
 | ```clean``` | Remove all compiled files and objects |
 | ```flash_programmer``` | Flash .hex file to AVR with avrdude and programmer flags |
